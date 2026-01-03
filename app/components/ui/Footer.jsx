@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-10 h-px bg-[#2a1f14]" />
+        <div className="py-10 h-px " />
 
         {/* Bottom */}
         {/* <div className="flex flex-col md:flex-row items-center justify-between pb-8 text-sm text-gray-500">

@@ -29,25 +29,19 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <a
-              href="#"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c8aa78] text-black"
-            >
-              <FaTelegramPlane />
-            </a>
-
-            <a
-              href="#"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c8aa78] text-black"
-            >
-              <FaWhatsapp />
-            </a>
+           
 
             <Link
               href="#"
               className="border border-[#c8aa78] px-5 py-2 text-xs tracking-[0.3em] text-white hover:bg-[#c8aa78] hover:text-black transition"
             >
-              BOOK NOW
+              Post You ad
+            </Link>
+            <Link
+              href="/login"
+              className="border border-[#c8aa78] px-5 py-2 text-xs tracking-[0.3em] bg-[#c8aa78] text-white hover:bg-[#c8aa78] hover:text-black transition"
+            >
+              Login
             </Link>
           </div>
         </div>
