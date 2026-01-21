@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <h4 className="font-serif text-2xl text-white mb-4">Escorts</h4>
+            <h4 className="font-serif text-2xl text-white mb-4">Affair Escorts</h4>
             <p className="text-sm text-gray-400 leading-relaxed">
               A premium destination for refined companionship, where desire
               meets sophistication and every connection feels exclusive.

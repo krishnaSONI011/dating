@@ -43,7 +43,7 @@ export default function EscortsByCity() {
               {/* Content */}
               <div className="absolute bottom-6 left-6 z-10">
                 <p className="text-sm tracking-widest text-[#c2a97e] uppercase">
-                  Escort Service in
+                  Affair Escort in
                 </p>
                 <h3 className="mt-1 text-3xl font-semibold text-white tracking-wide">
                   {city.name}

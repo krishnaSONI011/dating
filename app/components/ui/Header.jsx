@@ -14,18 +14,18 @@ export default function Header() {
             href="/"
             className="font-serif text-3xl tracking-widest text-white"
           >
-           Escort Service
+           Affair Escorts
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex gap-8 text-sm tracking-wide text-white/90">
+          {/* <nav className="hidden lg:flex gap-8 text-sm tracking-wide text-white/90">
             <Link href="#" className="hover:text-white">Models</Link>
             <Link href="#" className="hover:text-white">Services</Link>
             <Link href="#" className="hover:text-white">About</Link>
             <Link href="#" className="hover:text-white">Testimonials</Link>
             <Link href="#" className="hover:text-white">FAQs</Link>
             <Link href="#" className="hover:text-white">Blog</Link>
-          </nav>
+          </nav> */}
 
           {/* Actions */}
           <div className="flex items-center gap-4">

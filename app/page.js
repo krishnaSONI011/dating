@@ -4,6 +4,7 @@ import HeroVideo from "./components/Home/HeroVideo";
 import ExclusiveModels from "./components/Home/ExclusiveModels";
 import TopSearches from "./components/Common/TopSearches";
 import EscortsByCity from "./components/Home/EscortsByCity";
+import CitiesByState from "./components/Home/CitiesByState";
 import Footer from "./components/ui/Footer";
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
    {/* <ExclusiveModels /> */}
    
    <TopSearches />
+   
+   <CitiesByState />
    
   </>
   );
