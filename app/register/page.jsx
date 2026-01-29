@@ -1,8 +1,18 @@
 'use client'
 
-
+import { useState } from "react";
 
 export default function Register() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [agreeToTerms, setAgreeToTerms] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle registration logic here
+        console.log("Register:", { email, password, agreeToTerms });
+    };
+
     return (
       <div className="min-h-screen bg-black flex items-center justify-center px-4">
         <div className="w-full max-w-md rounded-xl border border-[#2a1f14] bg-[#0f0f0f] p-8">
@@ -16,41 +26,42 @@ export default function Register() {
           </p>
   
           {/* Form */}
-          <form className="space-y-4">
-  
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="input"
-            />
+          <form className="space-y-4" onSubmit={handleSubmit}>
   
             <input
               type="email"
               placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="input"
             />
   
             <input
               type="password"
               placeholder="Password"
-              className="input"
-            />
-  
-            <input
-              type="password"
-              placeholder="Confirm Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               className="input"
             />
   
             {/* Terms */}
             <div className="flex items-start gap-2 text-xs text-gray-400">
-              <input type="checkbox" className="mt-1 accent-[#c8aa78]" />
-              <p>
-                I confirm that I am 18+ and agree to the{" "}
-                <span className="text-[#c8aa78] cursor-pointer">
-                  Terms & Privacy Policy
+              <input 
+                type="checkbox" 
+                id="terms"
+                checked={agreeToTerms}
+                onChange={(e) => setAgreeToTerms(e.target.checked)}
+                required
+                className="mt-1 accent-[#c8aa78]" 
+              />
+              <label htmlFor="terms" className="cursor-pointer">
+                I agree to the{" "}
+                <span className="text-[#c8aa78] hover:underline">
+                  Terms & Conditions
                 </span>
-              </p>
+              </label>
             </div>
   
             {/* Submit */}
@@ -58,7 +69,7 @@ export default function Register() {
               type="submit"
               className="mt-6 w-full rounded-md bg-[#c8aa78] py-3 text-sm font-semibold tracking-widest text-black hover:bg-[#d6bc8c] transition"
             >
-              REGISTER
+              Create Account
             </button>
           </form>
   
