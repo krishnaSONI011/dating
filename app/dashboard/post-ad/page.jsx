@@ -4,15 +4,15 @@ import { useState } from "react";
 
 export default function PostAd() {
   const servicesList = [
-    "Anal",
-    "GFE",
-    "Erotic Massage",
-    "Oral",
-    "BDSM",
-    "Duo",
-    "Fetish",
-    "French Kiss",
-    "Handjob",
+    "service a",
+    "service B",
+    "service C",
+    "service D",
+    "service E",
+    "service F",
+    "service G",
+    "service H",
+    "service I",
   ];
 
   const timeSlots = [
