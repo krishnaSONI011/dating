@@ -265,10 +265,15 @@ export default function Verification() {
         const msg = res.data?.message || "Verification details submitted successfully.";
         toast.success(msg);
         const data = res.data?.data;
+        let userToStore = user;
         if (data) {
           const token = data.token ?? user?.token ?? null;
           const { password: _, ...userSafe } = data;
-          const userToStore = Object.keys(userSafe).length ? userSafe : user;
+          userToStore = Object.keys(userSafe).length ? userSafe : user;
+          // After resubmit following rejection, show Verification Pending (pending review) instead of Rejected
+          if (user?.is_approved == "2") {
+            userToStore = { ...userToStore, is_approved: "0", is_verified: "1" };
+          }
           dispatch(loginSuccess({ user: userToStore, token }));
           localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({ user: userToStore, token }));
         }

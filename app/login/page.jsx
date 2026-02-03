@@ -94,9 +94,9 @@ export default function Login() {
   
               {/* Footer links */}
               <div className="mt-6 flex justify-between text-xs text-gray-400">
-                <a href="#" className="hover:text-[#c8aa78]">
+                {/* <a href="#" className="hover:text-[#c8aa78]">
                   Forgot password?
-                </a>
+                </a> */}
                 <Link href="/register" className="hover:text-[#c8aa78]">
                   Create account
                 </Link>

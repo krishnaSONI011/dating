@@ -71,6 +71,13 @@ export default function Header() {
                   </button>
                   {dropdownOpen && (
                     <div className="absolute right-0 mt-2 w-48 rounded-lg border border-[#2a1f14] bg-[#111] py-2 shadow-xl">
+                      <Link
+                        href="/dashboard"
+                        onClick={() => setDropdownOpen(false)}
+                        className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#1a1a1a] hover:text-[#c8aa78]"
+                      >
+                        Dashboard
+                      </Link>
                       {isVerified && (
                         <Link
                           href="/dashboard/my-ads"

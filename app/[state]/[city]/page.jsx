@@ -286,6 +286,17 @@ export default function SearchByStateCityPage() {
             if (cityFiltered.length > 0) list = cityFiltered;
           }
         }
+
+        // When on a city page (/state/city), only show ads that match this city (never show Jaipur ads on Indore page)
+        if (stateFromApi && citySlug && citySlug !== "all") {
+          list = list.filter((ad) => {
+            const adCitySlug = toSlug((ad.city_name || ad.city || "").toString().trim());
+            const adStateSlug = toSlug((ad.state_name || ad.state || "").toString().trim());
+            const stateMatch = !adStateSlug || adStateSlug === stateSlug;
+            const cityMatch = adCitySlug === citySlug;
+            return stateMatch && cityMatch;
+          });
+        }
         setAds(list);
       } catch (err) {
         setAds([]);
