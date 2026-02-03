@@ -1,37 +1,8 @@
-import Link from "next/link";
 import { FaEnvelope, FaTrash, FaWhatsapp } from "react-icons/fa";
 
 export default function GeneralInfo() {
   return (
-    <div className="min-h-screen pt-10 bg-[#0b0b0b] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid gap-10 lg:grid-cols-[280px_1fr]">
-
-        {/* SIDEBAR */}
-        <aside className="rounded-xl border border-[#2a1f14] bg-[#111] p-6">
-          <h3 className="mb-6 font-serif text-2xl text-[#c8aa78]">
-            My Profile
-          </h3>
-
-          <ul className="space-y-4 text-sm">
-            <li className="text-[#c8aa78] font-medium">General Info</li>
-            <li className="text-gray-400 hover:text-white cursor-pointer">
-              Security
-            </li>
-            <li className="text-gray-400 hover:text-white cursor-pointer">
-              Notifications
-            </li>
-            <li className="text-red-400">
-              User Verification Pending
-            </li>
-          </ul>
-
-          <Link href={"/dashboard/post-ad"}>  <button className="mt-8 w-full rounded-md bg-[#c8aa78] py-3 text-sm font-semibold tracking-widest text-black hover:bg-[#d6bc8c] transition">
-            POST YOUR AD
-          </button></Link>
-        </aside>
-
-        {/* MAIN CONTENT */}
-        <main className="space-y-12">
+    <div className="space-y-12">
 
           {/* PAGE INTRO */}
           <div>
@@ -99,8 +70,6 @@ export default function GeneralInfo() {
             </button>
           </div>
 
-        </main>
-      </div>
     </div>
   );
 }

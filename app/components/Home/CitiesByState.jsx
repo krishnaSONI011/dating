@@ -2,25 +2,25 @@ import { statesData, unionTerritoriesData } from "../../data/locations";
 
 export default function CitiesByState() {
   return (
-    <section className="bg-[#0f0f0f] py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-[#0f0f0f] py-12 sm:py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
         {/* Heading */}
-        <h2 className="mb-14 text-center font-serif text-4xl md:text-5xl text-[#d6c29f]">
+        <h2 className="mb-8 sm:mb-12 md:mb-14 text-center font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#d6c29f] px-2">
           Cities by State & Union Territory
         </h2>
 
         {/* States Section */}
-        <div className="mb-16">
-          <h3 className="mb-8 text-2xl font-semibold text-[#c2a97e] border-b border-[#3a2c1a] pb-3">
+        <div className="mb-10 sm:mb-14 md:mb-16">
+          <h3 className="mb-4 sm:mb-6 md:mb-8 text-lg sm:text-xl md:text-2xl font-semibold text-[#c2a97e] border-b border-[#3a2c1a] pb-2 sm:pb-3">
             States
           </h3>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {Object.entries(statesData).map(([state, cities]) => (
               <div
                 key={state}
-                className="bg-[#1a1a1a] rounded-lg p-6 border border-[#3a2c1a] hover:border-[#c2a97e] transition-colors"
+                className="bg-[#1a1a1a] rounded-lg p-4 sm:p-5 md:p-6 border border-[#3a2c1a] hover:border-[#c2a97e] transition-colors"
               >
-                <h4 className="text-xl font-semibold text-[#d6c29f] mb-4">
+                <h4 className="text-base sm:text-lg md:text-xl font-semibold text-[#d6c29f] mb-3 sm:mb-4">
                   {state}
                 </h4>
                 <ul className="space-y-2">
@@ -40,16 +40,16 @@ export default function CitiesByState() {
 
         {/* Union Territories Section */}
         <div>
-          <h3 className="mb-8 text-2xl font-semibold text-[#c2a97e] border-b border-[#3a2c1a] pb-3">
+          <h3 className="mb-4 sm:mb-6 md:mb-8 text-lg sm:text-xl md:text-2xl font-semibold text-[#c2a97e] border-b border-[#3a2c1a] pb-2 sm:pb-3">
             Union Territories
           </h3>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {Object.entries(unionTerritoriesData).map(([territory, cities]) => (
               <div
                 key={territory}
-                className="bg-[#1a1a1a] rounded-lg p-6 border border-[#3a2c1a] hover:border-[#c2a97e] transition-colors"
+                className="bg-[#1a1a1a] rounded-lg p-4 sm:p-5 md:p-6 border border-[#3a2c1a] hover:border-[#c2a97e] transition-colors"
               >
-                <h4 className="text-xl font-semibold text-[#d6c29f] mb-4">
+                <h4 className="text-base sm:text-lg md:text-xl font-semibold text-[#d6c29f] mb-3 sm:mb-4">
                   {territory}
                 </h4>
                 <ul className="space-y-2">

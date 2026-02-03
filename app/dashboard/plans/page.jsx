@@ -1,12 +1,32 @@
 "use client";
 
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useSelector } from "react-redux";
+import { FaTimes, FaCopy } from "react-icons/fa";
+import { toast } from "react-toastify";
+
+const MAIL_US_EMAIL = "help@affairescort.com";
+
 export default function Plans() {
+  const searchParams = useSearchParams();
+  const adId = searchParams.get("ad_id");
+  const { user } = useSelector((state) => state.auth);
+  const [showMailPopup, setShowMailPopup] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const userEmail = user?.email ?? "your registered email";
+  const adIdLine = adId ? ` Ad ID: ${adId}.` : "";
+  const copyMessage = `Hi, I would like to boost my profile and choose a plan.${adIdLine} My registered email is: ${userEmail}. Please contact me.`;
+
   return (
-    <div className="min-h-screen bg-[#0b0b0b] text-white py-20">
-      <div className="mx-auto max-w-6xl px-6">
+    <div className="max-w-6xl">
 
         {/* Header */}
         <div className="mb-14 text-center">
+          <p className="text-sm font-semibold tracking-widest text-[#c8aa78] mb-2 uppercase">
+            Boost my profile
+          </p>
           <h1 className="text-4xl font-serif text-[#c8aa78] mb-3">
             Choose Your Plan
           </h1>
@@ -30,6 +50,7 @@ export default function Plans() {
             ]}
             buttonText="Post Ad"
             highlighted={false}
+            onChoosePlan={() => setShowMailPopup(true)}
           />
 
           {/* SILVER PLAN */}
@@ -44,6 +65,7 @@ export default function Plans() {
             ]}
             buttonText="Upgrade to Silver"
             highlighted={false}
+            onChoosePlan={() => setShowMailPopup(true)}
           />
 
           {/* GOLD PLAN */}
@@ -59,10 +81,69 @@ export default function Plans() {
             ]}
             buttonText="Upgrade to Gold"
             highlighted={true}
+            onChoosePlan={() => setShowMailPopup(true)}
           />
 
         </div>
-      </div>
+
+        {/* Mail us popup */}
+        {showMailPopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
+            <div className="relative w-full max-w-md rounded-xl border border-[#2a1f14] bg-[#111] p-6 shadow-xl">
+              <button
+                type="button"
+                onClick={() => setShowMailPopup(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                aria-label="Close"
+              >
+                <FaTimes className="text-xl" />
+              </button>
+              <h3 className="mb-4 font-serif text-xl text-[#c8aa78]">
+                Mail us
+              </h3>
+              <p className="mb-4 text-sm text-gray-300 leading-relaxed">
+                To choose a plan, please mail us with your registered email id at:
+              </p>
+              <a
+                href={`mailto:${MAIL_US_EMAIL}?subject=Plan enquiry - ${encodeURIComponent(userEmail)}&body=${encodeURIComponent(copyMessage)}`}
+                className="inline-block rounded-md bg-[#c8aa78] px-4 py-2 text-sm font-semibold text-black hover:bg-[#d6bc8c] transition"
+              >
+                {MAIL_US_EMAIL}
+              </a>
+              <p className="mt-4 text-xs text-gray-500">
+                Your registered email: <span className="text-gray-300">{userEmail}</span>
+              </p>
+              <div className="mt-4 rounded-lg border border-[#2a1f14] bg-[#1a1a1a] p-3">
+                <p className="mb-2 text-xs text-gray-500">Message to send:</p>
+                <p className="text-sm text-gray-300 whitespace-pre-wrap break-words">{copyMessage}</p>
+              </div>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(copyMessage);
+                    setCopied(true);
+                    toast.success("Message copied to clipboard.");
+                    setTimeout(() => setCopied(false), 2000);
+                  } catch {
+                    toast.error("Could not copy.");
+                  }
+                }}
+                className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-md border border-[#c8aa78] py-2 text-sm font-semibold text-[#c8aa78] hover:bg-[#c8aa78] hover:text-black transition"
+              >
+                <FaCopy />
+                {copied ? "Copied!" : "Copy this message"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowMailPopup(false)}
+                className="mt-4 w-full rounded-md border border-[#2a1f14] py-2 text-sm text-gray-400 hover:text-white transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
     </div>
   );
 }
@@ -76,6 +157,7 @@ function PlanCard({
   features,
   buttonText,
   highlighted,
+  onChoosePlan,
 }) {
   return (
     <div
@@ -120,6 +202,8 @@ function PlanCard({
 
       {/* Button */}
       <button
+        type="button"
+        onClick={onChoosePlan}
         className={`mt-8 rounded-md px-6 py-3 text-sm font-semibold tracking-widest transition
           ${
             highlighted

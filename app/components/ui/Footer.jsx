@@ -3,15 +3,15 @@ import { FaWhatsapp, FaTelegramPlane, FaHeart } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b0b0b] text-gray-300 pt-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="bg-[#0b0b0b] text-gray-300 pt-12 sm:pt-16 md:pt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Top Text */}
-        <div className="mb-16 text-center">
-          <h3 className="font-serif text-4xl text-[#d6c29f] mb-4">
+        <div className="mb-10 sm:mb-14 md:mb-16 text-center">
+          <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#d6c29f] mb-3 sm:mb-4 px-2">
             Indulge in Unforgettable Companionship
           </h3>
-          <p className="mx-auto max-w-2xl text-gray-400 leading-relaxed">
+          <p className="mx-auto max-w-2xl text-gray-400 leading-relaxed text-sm sm:text-base px-2">
             Crafted for those who appreciate elegance, intimacy, and discreet
             luxury. Every moment is designed to feel personal, warm, and
             irresistibly memorable.
@@ -19,11 +19,11 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
 
           {/* Brand */}
-          <div>
-            <h4 className="font-serif text-2xl text-white mb-4">Affair Escorts</h4>
+          <div className="sm:col-span-2 md:col-span-1">
+            <h4 className="font-serif text-xl sm:text-2xl text-white mb-3 sm:mb-4">Affair Escorts</h4>
             <p className="text-sm text-gray-400 leading-relaxed">
               A premium destination for refined companionship, where desire
               meets sophistication and every connection feels exclusive.

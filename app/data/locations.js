@@ -322,3 +322,33 @@ export const allLocations = {
   ...unionTerritoriesData
 };
 
+/** "Gujarat" -> "gujarat", "Andaman & Nicobar Islands" -> "andaman-nicobar-islands" */
+export function toSlug(name) {
+  if (!name || typeof name !== "string") return "";
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/\s*&\s*/g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/[()]/g, "");
+}
+
+/** Resolve state slug to state name (e.g. "gujarat" -> "Gujarat") */
+export function getStateNameBySlug(slug) {
+  if (!slug || slug === "all") return null;
+  const s = (slug || "").toLowerCase().replace(/-/g, " ");
+  for (const stateName of Object.keys(allLocations)) {
+    if (toSlug(stateName) === slug || stateName.toLowerCase().replace(/\s+/g, "-") === slug) return stateName;
+  }
+  return null;
+}
+
+/** Resolve city slug to city name for a given state (e.g. "ahmedabad" -> "Ahmedabad") */
+export function getCityNameBySlug(stateName, citySlug) {
+  if (!citySlug || citySlug === "all" || !stateName) return null;
+  const cities = allLocations[stateName];
+  if (!Array.isArray(cities)) return null;
+  const slug = (citySlug || "").toLowerCase();
+  return cities.find((c) => toSlug(c) === slug) || null;
+}
+

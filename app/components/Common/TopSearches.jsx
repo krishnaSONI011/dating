@@ -22,20 +22,20 @@ export default function TopSearches() {
       
   
     return (
-      <section className="bg-[#141414] py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[#141414] py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
   
           {/* Heading */}
-          <h2 className="text-center text-white mb-10 font-serif text-4xl md:text-5xl">
+          <h2 className="text-center text-white mb-6 sm:mb-8 md:mb-10 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-2">
           Top Search 
         </h2>
   
           {/* Pills */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {searches.map((item, index) => (
               <span
                 key={index}
-                className="rounded-xl bg-[#9b8a6a]/70 px-6 py-3 text-sm md:text-base text-white transition cursor-pointer"
+                className="rounded-lg sm:rounded-xl bg-[#9b8a6a]/70 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base text-white transition cursor-pointer"
               >
                 {item}
               </span>
